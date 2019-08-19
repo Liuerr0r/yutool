@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/7/11
  */
 @RestController
-public class RedisClusterSampleController {
+public class RedisSampleController {
     private static final String OK = "ok";
     private final RedisTemplate<String, String> redisTemplate;
 
     @Autowired
-    public RedisClusterSampleController(RedisTemplate<String, String> redisTemplate) {
+    public RedisSampleController(RedisTemplate<String, String> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

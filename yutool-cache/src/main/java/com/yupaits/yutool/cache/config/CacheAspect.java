@@ -27,21 +27,21 @@ import java.util.concurrent.locks.ReentrantLock;
 public class CacheAspect {
     private static final String KEY_DELIMITER = ":";
 
-    private static final String ADVICES = "execution(!final * com.posun..*.*(..)) " +
-            "&& !@annotation(com.posun.cmpt.cache.annotation.DisableCache) " +
-            "&& !@target(com.posun.cmpt.cache.annotation.DisableCache) " +
-            "&& (@annotation(com.posun.cmpt.cache.annotation.EnableCache) " +
-            "|| @target(com.posun.cmpt.cache.annotation.EnableCache))";
+    private static final String ADVICES = "execution(!final * com.yupaits..*.*(..)) " +
+            "&& !@annotation(com.yupaits.yutool.cache.annotation.DisableCache) " +
+            "&& !@target(com.yupaits.yutool.cache.annotation.DisableCache) " +
+            "&& (@annotation(com.yupaits.yutool.cache.annotation.EnableCache) " +
+            "|| @target(com.yupaits.yutool.cache.annotation.EnableCache))";
 
     /**
      * 缓存设置Advices
      */
-    private static final String FETCH_CACHE_ADVICES = ADVICES + " && !@annotation(com.posun.cmpt.cache.annotation.EvictCache)";
+    private static final String FETCH_CACHE_ADVICES = ADVICES + " && !@annotation(com.yupaits.yutool.cache.annotation.EvictCache)";
 
     /**
      * 缓存失效Advices
      */
-    private static final String EVICT_CACHE_ADVICES = ADVICES + " && @annotation(com.posun.cmpt.cache.annotation.EvictCache)";
+    private static final String EVICT_CACHE_ADVICES = ADVICES + " && @annotation(com.yupaits.yutool.cache.annotation.EvictCache)";
 
     /**
      * BloomFilter用于解决缓存穿透，实际使用时最好先进行缓存预热
