@@ -2,8 +2,8 @@ package com.yupaits.yutool.commons.exception;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
-import com.posun.cmpt.commons.result.IResultCode;
-import com.posun.cmpt.commons.result.ResultCode;
+import com.yupaits.yutool.commons.result.IResultCode;
+import com.yupaits.yutool.commons.result.ResultCode;
 
 import java.util.Arrays;
 import java.util.List;

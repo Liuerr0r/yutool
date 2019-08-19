@@ -1,6 +1,6 @@
 package com.yupaits.yutool.orm.support;
 
-import com.posun.cmpt.orm.base.AbstractModel;
+import com.yupaits.yutool.orm.base.AbstractModel;
 
 import java.io.Serializable;
 

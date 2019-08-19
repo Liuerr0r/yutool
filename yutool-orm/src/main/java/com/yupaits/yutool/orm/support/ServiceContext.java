@@ -1,6 +1,6 @@
 package com.yupaits.yutool.orm.support;
 
-import com.posun.cmpt.orm.base.BaseVo;
+import com.yupaits.yutool.orm.base.BaseVo;
 
 /**
  * ServiceContext

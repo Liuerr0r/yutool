@@ -3,8 +3,8 @@ package com.yupaits.yutool.orm.base;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.posun.cmpt.commons.constant.DateTimeConstants;
-import com.posun.cmpt.commons.utils.serializer.IdSerializer;
+import com.yupaits.yutool.commons.constant.DateTimeConstants;
+import com.yupaits.yutool.commons.utils.serializer.IdSerializer;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

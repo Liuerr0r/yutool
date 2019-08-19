@@ -1,7 +1,7 @@
 package com.yupaits.yutool.orm.base;
 
-import com.posun.cmpt.orm.support.ModelBuilder;
-import com.posun.cmpt.orm.support.VoBuilder;
+import com.yupaits.yutool.orm.support.ModelBuilder;
+import com.yupaits.yutool.orm.support.VoBuilder;
 
 /**
  * IBaseService接口

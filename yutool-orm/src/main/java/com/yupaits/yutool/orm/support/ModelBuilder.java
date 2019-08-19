@@ -1,7 +1,7 @@
 package com.yupaits.yutool.orm.support;
 
-import com.posun.cmpt.orm.base.AbstractModel;
-import com.posun.cmpt.orm.base.BaseDto;
+import com.yupaits.yutool.orm.base.AbstractModel;
+import com.yupaits.yutool.orm.base.BaseDto;
 
 /**
  * @author yupaits

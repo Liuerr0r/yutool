@@ -22,7 +22,18 @@
     </properties>
 
     <modules>
-        
+        <module>yutool-sample</module>
+        <module>apollo-sample</module>
+        <module>elk-log-sample</module>
+        <module>prometheus-sample</module>
+        <module>rabbitmq-sample</module>
+        <module>redis-sample</module>
+        <module>xxl-job-sample</module>
+        <module>zk-sample</module>
+        <module>oauth2-sample</module>
+        <module>shiro-jwt-sample</module>
+        <module>spring-security-jwt-sample</module>
+        <module>spring-cloud-alibaba-sample</module>
     </modules>
 
 </project>
