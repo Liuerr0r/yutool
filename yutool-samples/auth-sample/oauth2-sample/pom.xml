@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.yupaits.auth</groupId>
+        <groupId>com.yupaits</groupId>
         <artifactId>auth-sample</artifactId>
         <version>${revision}</version>
         <relativePath>..</relativePath>
@@ -20,5 +20,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yupaits</groupId>
+            <artifactId>yutool-commons</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

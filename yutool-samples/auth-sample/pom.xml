@@ -2,10 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.yupaits.auth</groupId>
     <artifactId>auth-sample</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+
+    <parent>
+        <groupId>com.yupaits</groupId>
+        <artifactId>yutool-samples</artifactId>
+        <version>${revision}</version>
+        <relativePath>..</relativePath>
+    </parent>
 
     <name>auth-sample</name>
     <description>认证授权单点登录示例</description>
@@ -14,8 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-
-        <revision>1.0.0</revision>
     </properties>
 
     <modules>
