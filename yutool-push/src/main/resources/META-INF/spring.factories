@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yupaits.yutool.push.config.PushAutoConfigure,\
+com.yupaits.yutool.push.config.WebSocketConfig

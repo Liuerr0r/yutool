@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.yupaits.yutool.file.config.FileServerAutoConfigure,\
+com.yupaits.yutool.file.config.FileServerConfig
