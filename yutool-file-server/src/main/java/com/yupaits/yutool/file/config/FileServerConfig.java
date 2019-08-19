@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @date 2019/7/23
  */
 @Configuration
-@ConditionalOnBean(AntiTheftService.class)
+@ConditionalOnBean({AntiTheftService.class, FileAccessService.class})
 public class FileServerConfig implements WebMvcConfigurer {
     private static final String FILE_SERVER_PATH = "/upload/**";
 
