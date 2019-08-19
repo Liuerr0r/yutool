@@ -6,4 +6,4 @@
 
 项目结构图：
 
-<img src="images/yutool.png" alt="yutool项目结构图" width="500">
+<img src="images/yutool.png" alt="yutool项目结构图" width="300">
