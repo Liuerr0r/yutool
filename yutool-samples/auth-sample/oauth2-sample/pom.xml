@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-security-jwt-sample</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>oauth2-sample</artifactId>
+    <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.yupaits</groupId>
-        <artifactId>yutool-samples</artifactId>
+        <groupId>com.yupaits.auth</groupId>
+        <artifactId>auth-sample</artifactId>
         <version>${revision}</version>
         <relativePath>..</relativePath>
     </parent>
 
-    <name>spring-security-jwt-sample</name>
-    <description>spring security jwt认证授权示例</description>
+    <name>oauth2-sample</name>
+    <description>oauth2认证授权单点登录示例</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

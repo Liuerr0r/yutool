@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shiro-jwt-sample</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <parent>
-        <groupId>com.yupaits</groupId>
-        <artifactId>yutool-samples</artifactId>
+        <groupId>com.yupaits.auth</groupId>
+        <artifactId>auth-sample</artifactId>
         <version>${revision}</version>
         <relativePath>..</relativePath>
     </parent>
