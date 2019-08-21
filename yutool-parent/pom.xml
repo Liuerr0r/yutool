@@ -44,6 +44,10 @@
 
     <repositories>
         <repository>
+            <id>aliyun-maven</id>
+            <url>https://maven.aliyun.com/repository/releases</url>
+        </repository>
+        <repository>
             <id>getui-nexus</id>
             <url>http://mvn.gt.igexin.com/nexus/content/repositories/releases/</url>
         </repository>
@@ -237,6 +241,11 @@
             <dependency>
                 <groupId>com.yupaits</groupId>
                 <artifactId>yutool-file-server</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yupaits</groupId>
+                <artifactId>jwt-helper</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

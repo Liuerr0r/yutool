@@ -2,28 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>yutool-plugins</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>jwt-helper</artifactId>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>com.yupaits</groupId>
-        <artifactId>yutool-parent</artifactId>
+        <artifactId>yutool-plugins</artifactId>
         <version>${revision}</version>
-        <relativePath>../yutool-parent</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
-    <name>yutool-plugins</name>
-    <description>yutool基础功能组件插件</description>
+    <name>jwt-helper</name>
+    <description>jwt辅助工具</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <jjwt.version>0.7.0</jjwt.version>
     </properties>
 
-    <modules>
-        <module>jwt-helper</module>
-        <module>swagger-support</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
