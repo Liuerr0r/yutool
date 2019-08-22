@@ -251,6 +251,11 @@
             </dependency>
             <dependency>
                 <groupId>com.yupaits</groupId>
+                <artifactId>audit-logger</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yupaits</groupId>
                 <artifactId>jwt-helper</artifactId>
                 <version>${revision}</version>
             </dependency>
