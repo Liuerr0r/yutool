@@ -35,6 +35,7 @@
         <fastjson.version>1.2.58</fastjson.version>
         <fastdfs-client.version>1.26.6</fastdfs-client.version>
         <hutool.version>4.5.16</hutool.version>
+        <jjwt.version>0.9.1</jjwt.version>
         <gexin-rp-sdk-http.version>4.1.0.3</gexin-rp-sdk-http.version>
 
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
@@ -196,6 +197,11 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-captcha</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.gexin.platform</groupId>
