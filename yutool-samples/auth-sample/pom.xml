@@ -22,9 +22,27 @@
     </properties>
 
     <modules>
+        <module>user-service</module>
+        <module>post-service</module>
         <module>oauth2-sample</module>
         <module>shiro-jwt-sample</module>
         <module>spring-security-jwt-sample</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.yupaits</groupId>
+                <artifactId>user-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yupaits</groupId>
+                <artifactId>post-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
