@@ -3,7 +3,7 @@ package com.yupaits.yutool.orm.config;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.yupaits.yutool.commons.service.OptService;
+import com.yupaits.yutool.orm.support.service.MetaObjectOptService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -24,9 +24,9 @@ public class OrmAutoConfigure {
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnClass(MetaObjectHandler.class)
-    @ConditionalOnBean(OptService.class)
-    public MetaObjectHandler metaObjectHandler(OptService optService) {
-        return new MetaObjectHandlerImpl(optService);
+    @ConditionalOnBean(MetaObjectOptService.class)
+    public MetaObjectHandler metaObjectHandler(MetaObjectOptService metaObjectOptService) {
+        return new MetaObjectHandlerImpl(metaObjectOptService);
     }
 
     /**

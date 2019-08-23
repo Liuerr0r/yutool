@@ -1,7 +1,7 @@
 package com.yupaits.yutool.orm.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.yupaits.yutool.commons.service.OptService;
+import com.yupaits.yutool.orm.support.service.MetaObjectOptService;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.time.LocalDateTime;
@@ -13,24 +13,24 @@ import java.time.LocalDateTime;
  */
 public class MetaObjectHandlerImpl implements MetaObjectHandler {
 
-    private final OptService optService;
+    private final MetaObjectOptService metaObjectOptService;
 
-    public MetaObjectHandlerImpl(OptService optService) {
-        this.optService = optService;
+    public MetaObjectHandlerImpl(MetaObjectOptService metaObjectOptService) {
+        this.metaObjectOptService = metaObjectOptService;
     }
 
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setInsertFieldValByName("createdTime", LocalDateTime.now(), metaObject);
-        this.setInsertFieldValByName("createdBy", optService.getOperatorId(), metaObject);
+        this.setInsertFieldValByName("createdBy", metaObjectOptService.getOperatorId(), metaObject);
         this.setInsertFieldValByName("lastModifiedTime", LocalDateTime.now(), metaObject);
-        this.setInsertFieldValByName("lastModifiedBy", optService.getOperatorId(), metaObject);
+        this.setInsertFieldValByName("lastModifiedBy", metaObjectOptService.getOperatorId(), metaObject);
         this.setInsertFieldValByName("deleted", false, metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         this.setUpdateFieldValByName("lastModifiedTime", LocalDateTime.now(), metaObject);
-        this.setUpdateFieldValByName("lastModifiedBy", optService.getOperatorId(), metaObject);
+        this.setUpdateFieldValByName("lastModifiedBy", metaObjectOptService.getOperatorId(), metaObject);
     }
 }
