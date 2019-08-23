@@ -29,12 +29,23 @@ public class JwtHelper {
      * @return Token
      */
     public String getToken(HttpServletRequest request) {
+        return getToken(request, false);
+    }
+
+    /**
+     * 从Request中获取Token
+     * @param request 请求体
+     * @param throwEx 是否抛出异常
+     * @return Token
+     */
+    public String getToken(HttpServletRequest request, boolean throwEx) {
         String authHeader = request.getHeader(jwtProps.getAuthHeader());
         if (StringUtils.startsWithIgnoreCase(authHeader, TOKEN_PREFIX)) {
             return StringUtils.substringAfter(authHeader, TOKEN_PREFIX);
-        } else {
+        } else if (throwEx) {
             throw new JwtException("token不存在或格式有误");
         }
+        return null;
     }
 
     /**

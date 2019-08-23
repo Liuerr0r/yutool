@@ -77,7 +77,7 @@ public class StatelessAuthFilter extends AccessControlFilter {
     }
 
     /**
-     *
+     * 将响应内容写入response
      * @param response 响应体
      * @param resultCode 响应码内容
      * @return false

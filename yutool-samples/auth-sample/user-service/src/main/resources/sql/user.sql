@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
     `id` BIGINT(19) NOT NULL COMMENT '用户ID',
     `username` VARCHAR(40) DEFAULT NULL COMMENT '用户名',
-    `password` VARCHAR(64) DEFAULT NULL COMMENT '密码密文',
+    `password` VARCHAR(68) DEFAULT NULL COMMENT '密码密文',
     `salt` VARCHAR(20) DEFAULT NULL COMMENT '加盐',
     `created_time` DATETIME DEFAULT NULL COMMENT '创建时间',
     `created_by` VARCHAR(19) DEFAULT NULL COMMENT '创建ID',

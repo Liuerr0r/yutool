@@ -13,7 +13,6 @@ import com.yupaits.yutool.commons.exception.BusinessException;
 import com.yupaits.yutool.commons.result.Result;
 import com.yupaits.yutool.commons.result.ResultCode;
 import com.yupaits.yutool.commons.result.ResultWrapper;
-import com.yupaits.yutool.commons.service.OptService;
 import com.yupaits.yutool.plugin.jwt.support.JwtHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -30,13 +29,11 @@ import java.util.Map;
 public class AuthServiceImpl implements AuthService {
     private final UserService userService;
     private final JwtHelper jwtHelper;
-    private final OptService optService;
 
     @Autowired
-    public AuthServiceImpl(UserService userService, JwtHelper jwtHelper, OptService optService) {
+    public AuthServiceImpl(UserService userService, JwtHelper jwtHelper) {
         this.userService = userService;
         this.jwtHelper = jwtHelper;
-        this.optService = optService;
     }
 
     @Override
