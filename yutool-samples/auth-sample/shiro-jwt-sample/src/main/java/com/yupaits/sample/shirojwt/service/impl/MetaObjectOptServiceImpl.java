@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * @author yupaits
  * @date 2019/8/23
  */
-@Service("metaObjectOptService")
+@Service
 public class MetaObjectOptServiceImpl implements MetaObjectOptService {
     @Override
     public String getOperatorId() {

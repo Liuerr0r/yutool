@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.yupaits.sample.shirojwt.constant.JwtConstants;
 import com.yupaits.sample.shirojwt.dto.LoginForm;
 import com.yupaits.sample.shirojwt.service.AuthService;
+import com.yupaits.sample.shirojwt.shiro.StatelessToken;
 import com.yupaits.sample.shirojwt.utils.EncryptUtils;
 import com.yupaits.sample.user.model.User;
 import com.yupaits.sample.user.service.UserService;
@@ -15,6 +16,7 @@ import com.yupaits.yutool.commons.result.ResultWrapper;
 import com.yupaits.yutool.commons.service.OptService;
 import com.yupaits.yutool.plugin.jwt.support.JwtHelper;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +56,11 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Result<UserVo> currentUser() throws BusinessException {
-        String username = optService.getOperatorId();
+        Object principal = SecurityUtils.getSubject().getPrincipal();
+        String username = null;
+        if (principal instanceof StatelessToken) {
+            username = ((StatelessToken) principal).getUsername();
+        }
         return userService.getVoByUsername(username);
     }
 }

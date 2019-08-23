@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author yupaits
  * @date 2019/8/22
  */
-@Service("optService")
+@Service
 public class OptServiceImpl implements OptService {
     private final MetaObjectOptService metaObjectOptService;
     private final UserMapper userMapper;
