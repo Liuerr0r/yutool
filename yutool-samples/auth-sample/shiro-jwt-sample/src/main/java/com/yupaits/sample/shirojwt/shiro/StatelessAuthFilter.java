@@ -1,6 +1,7 @@
 package com.yupaits.sample.shirojwt.shiro;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yupaits.sample.shirojwt.constant.JwtConstants;
 import com.yupaits.yutool.commons.result.IResultCode;
 import com.yupaits.yutool.commons.result.ResultCode;
 import com.yupaits.yutool.commons.result.ResultWrapper;
@@ -49,7 +50,7 @@ public class StatelessAuthFilter extends AccessControlFilter {
         if (StringUtils.isBlank(username)) {
             return failCodeResult(response, JwtResultCode.TOKEN_INVALID);
         }
-        StatelessToken statelessToken = new StatelessToken(username, token);
+        StatelessToken statelessToken = new StatelessToken(String.valueOf(claims.get(JwtConstants.USER_ID, Long.class)), username, token);
         try {
             getSubject(servletRequest, servletResponse).login(statelessToken);
         } catch (AuthenticationException e) {

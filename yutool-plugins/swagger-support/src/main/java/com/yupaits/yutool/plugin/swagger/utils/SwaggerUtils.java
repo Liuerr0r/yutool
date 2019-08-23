@@ -1,7 +1,7 @@
 package com.yupaits.yutool.plugin.swagger.utils;
 
 import com.google.common.base.Predicates;
-import com.yupaits.yutool.plugin.swagger.ApiProps;
+import com.yupaits.yutool.plugin.swagger.config.ApiProps;
 import com.yupaits.yutool.plugin.swagger.model.GroupApiInfo;
 import org.apache.commons.lang3.StringUtils;
 import springfox.documentation.builders.ApiInfoBuilder;

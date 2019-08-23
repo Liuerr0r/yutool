@@ -22,6 +22,7 @@
     </properties>
 
     <modules>
+        <module>audit-logger</module>
         <module>jwt-helper</module>
         <module>swagger-support</module>
     </modules>

@@ -21,6 +21,7 @@ public interface AuthService {
     /**
      * 获取当前用户信息
      * @return 当前用户信息
+     * @throws BusinessException 抛出BusinessException
      */
     Result<UserVo> currentUser() throws BusinessException;
 }

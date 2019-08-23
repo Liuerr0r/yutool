@@ -22,3 +22,8 @@ api:
   title: Shiro-JWT示例
   description: Shiro-JWT示例应用
   basePackage: com.yupaits.sample
+
+#jwt:
+#  secret:
+#  expired-in:
+#  auth-header:

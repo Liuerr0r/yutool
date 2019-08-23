@@ -1,7 +1,6 @@
 package com.yupaits.yutool.plugin.jwt.support;
 
 import lombok.Data;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -12,10 +11,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties("jwt")
 public class JwtProps {
+    private static final String DEFAULT_SECRET = "shiro-jwt";
+
     /**
-     * Token密钥，默认随机生成
+     * Token密钥
      */
-    private String secret = RandomStringUtils.randomAlphanumeric(12);
+    private String secret = DEFAULT_SECRET;
 
     /**
      * 有效期，单位秒，默认是2周

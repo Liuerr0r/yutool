@@ -1,6 +1,7 @@
 package com.yupaits.sample.shirojwt.service.impl;
 
 import com.google.common.collect.Maps;
+import com.yupaits.sample.shirojwt.constant.JwtConstants;
 import com.yupaits.sample.shirojwt.dto.LoginForm;
 import com.yupaits.sample.shirojwt.service.AuthService;
 import com.yupaits.sample.shirojwt.utils.EncryptUtils;
@@ -46,7 +47,8 @@ public class AuthServiceImpl implements AuthService {
             return ResultWrapper.fail(ResultCode.LOGIN_FAIL);
         }
         Map<String, Object> claims = Maps.newHashMap();
-        claims.put("sub", loginForm.getUsername());
+        claims.put(JwtConstants.SUBJECT, loginForm.getUsername());
+        claims.put(JwtConstants.USER_ID, user.getId());
         return ResultWrapper.success(jwtHelper.generateToken(claims));
     }
 

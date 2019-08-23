@@ -10,21 +10,31 @@ import org.apache.shiro.authc.AuthenticationToken;
 public class StatelessToken implements AuthenticationToken {
     private static final long serialVersionUID = 1L;
 
+    private String userId;
     private String username;
     private String token;
 
-    public StatelessToken(String username, String token) {
+    public StatelessToken(String userId, String username, String token) {
+        this.userId = userId;
         this.username = username;
         this.token = token;
     }
 
     @Override
     public Object getPrincipal() {
-        return this.username;
+        return this;
     }
 
     @Override
     public Object getCredentials() {
         return this.token;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

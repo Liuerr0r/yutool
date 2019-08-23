@@ -8,7 +8,7 @@ import org.apache.shiro.crypto.hash.SimpleHash;
  * @date 2019/8/22
  */
 public class EncryptUtils {
-    private static final String ALGORITHM = "SHA-2256";
+    private static final String ALGORITHM = "SHA-256";
     private static final int ITERATIONS = 3;
 
     /**

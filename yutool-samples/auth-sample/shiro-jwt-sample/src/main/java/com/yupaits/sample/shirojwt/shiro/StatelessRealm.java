@@ -23,24 +23,28 @@ public class StatelessRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        String username = (String) principals.getPrimaryPrincipal();
-        User user = userService.getByUsername(username);
-        info.addRoles(userService.getUserRoles(user.getId()));
-        return info;
+        Object principal = principals.getPrimaryPrincipal();
+        if (principal instanceof StatelessToken) {
+            SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+            String username = ((StatelessToken) principal).getUsername();
+            User user = userService.getByUsername(username);
+            info.addRoles(userService.getUserRoles(user.getId()));
+            return info;
+        }
+        return null;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         Assert.notNull(token, "token不能为空");
         StatelessToken statelessToken = (StatelessToken) token;
-        String username = (String) token.getPrincipal();
+        String username = statelessToken.getUsername();
         User user = userService.getByUsername(username);
         if (user == null) {
             throw new UnknownAccountException(String.format("用户 %s 不存在", username));
         }
         String accessToken = (String) token.getCredentials();
-        return new SimpleAuthenticationInfo(username, accessToken, getName());
+        return new SimpleAuthenticationInfo(statelessToken, accessToken, getName());
     }
 
     @Override

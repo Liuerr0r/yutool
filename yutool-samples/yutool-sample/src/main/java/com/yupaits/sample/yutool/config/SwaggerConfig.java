@@ -1,6 +1,6 @@
 package com.yupaits.sample.yutool.config;
 
-import com.yupaits.yutool.plugin.swagger.ApiProps;
+import com.yupaits.yutool.plugin.swagger.config.ApiProps;
 import com.yupaits.yutool.plugin.swagger.utils.SwaggerUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;

@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
     `id` BIGINT(19) NOT NULL COMMENT '用户ID',
     `username` VARCHAR(40) DEFAULT NULL COMMENT '用户名',
-    `password` VARCHAR(32) DEFAULT NULL COMMENT '密码密文',
+    `password` VARCHAR(64) DEFAULT NULL COMMENT '密码密文',
     `salt` VARCHAR(20) DEFAULT NULL COMMENT '加盐',
     `created_time` DATETIME DEFAULT NULL COMMENT '创建时间',
     `created_by` VARCHAR(19) DEFAULT NULL COMMENT '创建ID',
@@ -38,5 +38,5 @@ CREATE TABLE `user_role` (
     `last_modified_by` VARCHAR(19) DEFAULT NULL COMMENT '更新人ID',
     PRIMARY KEY (`id`),
     KEY `idx_user_id` (`user_id`),
-    KEY `idx_role_id` (`role_id`),
+    KEY `idx_role_id` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '用户角色关联信息';

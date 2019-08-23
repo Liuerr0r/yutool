@@ -1,4 +1,4 @@
-package com.yupaits.yutool.plugin.swagger;
+package com.yupaits.yutool.plugin.swagger.config;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 

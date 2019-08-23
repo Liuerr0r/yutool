@@ -1,4 +1,4 @@
-package com.yupaits.yutool.plugin.swagger;
+package com.yupaits.yutool.plugin.swagger.config;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.Lists;

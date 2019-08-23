@@ -46,7 +46,7 @@
     <repositories>
         <repository>
             <id>aliyun-maven</id>
-            <url>https://maven.aliyun.com/repository/releases</url>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
         <repository>
             <id>getui-nexus</id>

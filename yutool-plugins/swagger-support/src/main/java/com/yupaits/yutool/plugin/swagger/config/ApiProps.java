@@ -1,4 +1,4 @@
-package com.yupaits.yutool.plugin.swagger;
+package com.yupaits.yutool.plugin.swagger.config;
 
 import com.yupaits.yutool.plugin.swagger.model.GroupApiInfo;
 import lombok.AllArgsConstructor;

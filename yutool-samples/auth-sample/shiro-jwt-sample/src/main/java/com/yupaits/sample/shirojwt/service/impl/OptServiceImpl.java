@@ -1,9 +1,10 @@
 package com.yupaits.sample.shirojwt.service.impl;
 
+import com.yupaits.sample.user.mapper.UserMapper;
 import com.yupaits.sample.user.model.User;
-import com.yupaits.sample.user.service.UserService;
 import com.yupaits.yutool.commons.service.OptService;
-import org.apache.shiro.SecurityUtils;
+import com.yupaits.yutool.orm.support.service.MetaObjectOptService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +12,31 @@ import org.springframework.stereotype.Service;
  * @author yupaits
  * @date 2019/8/22
  */
-@Service
+@Service("optService")
 public class OptServiceImpl implements OptService {
-    private final UserService userService;
+    private final MetaObjectOptService metaObjectOptService;
+    private final UserMapper userMapper;
 
     @Autowired
-    public OptServiceImpl(UserService userService) {
-        this.userService = userService;
+    public OptServiceImpl(MetaObjectOptService metaObjectOptService, UserMapper userMapper) {
+        this.metaObjectOptService = metaObjectOptService;
+        this.userMapper = userMapper;
     }
 
     @Override
     public String getOperatorId() {
-        String username = SecurityUtils.getSubject().getPrincipal().toString();
-        User user = userService.getByUsername(username);
-        if (user == null) {
-            return null;
-        }
-        return String.valueOf(user.getId());
+        return metaObjectOptService.getOperatorId();
     }
 
     @Override
     public String getOptName(String operatorId) {
-        return SecurityUtils.getSubject().getPrincipal().toString();
+        if (StringUtils.isBlank(operatorId)) {
+            return null;
+        }
+        User user = userMapper.selectById(Long.parseLong(operatorId));
+        if (user != null) {
+            return user.getUsername();
+        }
+        return null;
     }
 }
