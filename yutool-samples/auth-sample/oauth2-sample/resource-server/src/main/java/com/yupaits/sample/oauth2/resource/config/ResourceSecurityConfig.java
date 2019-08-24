@@ -1,7 +1,7 @@
-package com.yupaits.sample.oauth2.authorization.config;
+package com.yupaits.sample.oauth2.resource.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yupaits.sample.oauth2.authorization.constant.SecurityConstants;
+import com.yupaits.sample.oauth2.resource.constant.SecurityConstants;
 import com.yupaits.yutool.commons.result.IResultCode;
 import com.yupaits.yutool.commons.result.ResultCode;
 import com.yupaits.yutool.commons.result.ResultWrapper;
