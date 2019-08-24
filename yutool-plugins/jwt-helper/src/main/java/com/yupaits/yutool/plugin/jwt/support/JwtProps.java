@@ -19,9 +19,9 @@ public class JwtProps {
     private String secret = DEFAULT_SECRET;
 
     /**
-     * 有效期，单位秒，默认是2周
+     * 有效期，单位秒，默认是12个小时
      */
-    private int expiredIn = 1209600;
+    private int expiredIn = 43200;
 
     /**
      * JWT Header名称，默认是 Authorization
