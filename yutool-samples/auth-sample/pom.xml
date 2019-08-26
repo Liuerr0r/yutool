@@ -24,6 +24,7 @@
     <modules>
         <module>user-service</module>
         <module>post-service</module>
+        <module>post-extras</module>
         <module>oauth2-sample</module>
         <module>shiro-jwt-sample</module>
         <module>spring-security-jwt-sample</module>
@@ -40,6 +41,12 @@
             <dependency>
                 <groupId>com.yupaits</groupId>
                 <artifactId>post-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yupaits</groupId>
+                <artifactId>post-extras</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>

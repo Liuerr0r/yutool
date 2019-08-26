@@ -1,6 +1,9 @@
 package com.yupaits.sample.oauth2.authorization.controller;
 
+import com.yupaits.sample.oauth2.authorization.constant.SecurityConstants;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
+import org.springframework.security.oauth2.provider.AuthorizationRequest;
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +22,7 @@ import java.util.Set;
  */
 @Controller
 @FrameworkEndpoint
-@SessionAttributes("authorizationRequest")
+@SessionAttributes(SecurityConstants.SESSION_ATTRIBUTES)
 public class PageController {
 
     @GetMapping("/login")
@@ -30,12 +33,20 @@ public class PageController {
         return "login";
     }
 
+    @GetMapping("/index")
+    public String indexPage() {
+        return "index";
+    }
+
     @GetMapping("/oauth/confirm_access")
     public String confirmAccessPage(Map<String, Object> model, HttpServletRequest request) {
-        //noinspection unchecked
-        Map<String, String> scopes = (Map<String, String>) (model.containsKey("scopes") ? model.get("scopes") : request.getAttribute("scopes"));
-        Set<String> scopeList = scopes.keySet();
-        model.put("scopeList", scopeList);
+        if (model.containsKey(SecurityConstants.SESSION_ATTRIBUTES)) {
+            AuthorizationRequest authorizationRequest = (AuthorizationRequest) model.get(SecurityConstants.SESSION_ATTRIBUTES);
+            Set<String> scopes = authorizationRequest.getScope();
+            if (CollectionUtils.isNotEmpty(scopes)) {
+                model.put("scopes", scopes);
+            }
+        }
         return "confirmAccess";
     }
 

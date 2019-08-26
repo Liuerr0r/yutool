@@ -29,6 +29,11 @@
 
         <dependency>
             <groupId>com.yupaits</groupId>
+            <artifactId>user-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yupaits</groupId>
             <artifactId>audit-logger</artifactId>
         </dependency>
 

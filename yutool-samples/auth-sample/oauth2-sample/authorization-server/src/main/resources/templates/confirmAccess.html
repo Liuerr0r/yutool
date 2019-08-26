@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8"/>
   <title>确认授权</title>
-  <link rel="icon" href="https://blog.yupaits.com/avatar.jpg"/>
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 </head>
 <body>
@@ -18,7 +17,7 @@
             获取您受保护的资源吗?</p>
           <form id="confirmationForm" name="confirmationForm" method="post" th:action="@{/oauth/authorize}">
             <input type="hidden" name="user_oauth_approval" value="true"/>
-            <ul class="list-group list-group-flush" th:each="scope : ${scopeList}">
+            <ul class="list-group list-group-flush" th:each="scope : ${scopes}">
               <li class="list-group-item">
                 <b th:text="${scope} + '：'">scope.all：</b>
                 <label class="mr-3 pull-right"><input type="radio" th:name="${scope}" name="scope.all"

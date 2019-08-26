@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>com.yupaits</groupId>
-            <artifactId>yutool-orm</artifactId>
+            <artifactId>post-extras</artifactId>
         </dependency>
     </dependencies>
 

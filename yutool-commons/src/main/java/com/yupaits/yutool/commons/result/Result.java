@@ -3,8 +3,10 @@ package com.yupaits.yutool.commons.result;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
@@ -17,7 +19,10 @@ import java.io.Serializable;
 @Data
 @Builder
 @ApiModel
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result<T> implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("返回码")
     private int code;

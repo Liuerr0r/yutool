@@ -2,7 +2,6 @@ package com.yupaits.sample.oauth2.authorization.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yupaits.sample.oauth2.authorization.constant.SecurityConstants;
-import com.yupaits.yutool.commons.result.IResultCode;
 import com.yupaits.yutool.commons.result.ResultCode;
 import com.yupaits.yutool.commons.result.ResultWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * @author yupaits
@@ -23,37 +21,31 @@ import java.io.IOException;
 @EnableResourceServer
 public class ResourceSecurityConfig extends ResourceServerConfigurerAdapter {
     private final ObjectMapper objectMapper;
+    private final JwtTokenStore tokenStore;
 
     @Autowired
-    public ResourceSecurityConfig(ObjectMapper objectMapper) {
+    public ResourceSecurityConfig(ObjectMapper objectMapper, JwtTokenStore tokenStore) {
         this.objectMapper = objectMapper;
+        this.tokenStore = tokenStore;
+    }
+
+    @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        resources.tokenStore(tokenStore);
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .exceptionHandling()
-                .authenticationEntryPoint((request, response, authEx) -> {
-                    failCodeResult(response, ResultCode.UNAUTHORIZED);
-                })
                 .accessDeniedHandler((request, response, accessDeniedEx) -> {
-                    failCodeResult(response, ResultCode.FORBIDDEN);
+                    response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+                    objectMapper.writeValue(response.getWriter(), ResultWrapper.fail(ResultCode.FORBIDDEN));
                 })
                 .and()
                 .authorizeRequests()
                 .antMatchers(SecurityConstants.ignorePaths).permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic();
-    }
-
-    /**
-     * 将响应内容写入response
-     * @param response 响应体
-     * @param resultCode 响应码内容
-     * @throws IOException 抛出IOException
-     */
-    private void failCodeResult(HttpServletResponse response, IResultCode resultCode) throws IOException {
-        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        objectMapper.writeValue(response.getWriter(), ResultWrapper.fail(resultCode));
     }
 }

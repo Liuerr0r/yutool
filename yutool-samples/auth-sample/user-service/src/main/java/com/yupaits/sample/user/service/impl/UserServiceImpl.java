@@ -72,6 +72,23 @@ public class UserServiceImpl extends BaseResultServiceImpl<Long, User, UserMappe
     }
 
     @Override
+    public boolean saveRole(Role role) {
+        return retBool(roleMapper.insert(role));
+    }
+
+    @Override
+    public boolean saveUserRole(UserRole userRole) {
+        return retBool(userRoleMapper.insert(userRole));
+    }
+
+    @Override
+    public Role getRoleByIdentity(String role) {
+        QueryWrapper<Role> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("role", role);
+        return roleMapper.selectOne(queryWrapper);
+    }
+
+    @Override
     public User getByUsername(String username) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username);

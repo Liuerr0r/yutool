@@ -1,5 +1,6 @@
 package com.yupaits.sample.oauth2.authorization.config;
 
+import com.yupaits.sample.oauth2.authorization.constant.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +21,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableAuthorizationServer
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
-    private static final String JWT_SIGNING_KEY = "oauth-sample";
-
     private final UserDetailsService userDetailsService;
     private final AuthenticationManager authenticationManager;
 
@@ -34,7 +33,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter jwtTokenEnhancer() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(JWT_SIGNING_KEY);
+        converter.setSigningKey(SecurityConstants.JWT_SIGNING_KEY);
         return converter;
     }
 
@@ -60,8 +59,9 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("PostClient")
-                .secret("post-secret")
+                .secret("{noop}post-secret")
                 .scopes("read", "write")
+                .redirectUris("http://localhost:8093/web/login")
                 .autoApprove(false)
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token");
     }

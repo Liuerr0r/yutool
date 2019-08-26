@@ -1,5 +1,6 @@
 package com.yupaits.sample.user.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.yupaits.yutool.orm.base.BaseModel;
 import lombok.*;
@@ -35,5 +36,6 @@ public class Role extends BaseModel<Long, Role> {
     /**
      * 启用标记
      */
+    @TableField("is_enabled")
     private Boolean enabled;
 }

@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>discovery-server</artifactId>
+    <artifactId>post-extras</artifactId>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>com.yupaits</groupId>
-        <artifactId>oauth2-sample</artifactId>
+        <artifactId>auth-sample</artifactId>
         <version>${revision}</version>
         <relativePath>..</relativePath>
     </parent>
 
-    <name>discovery-server</name>
-    <description>服务发现注册中心</description>
+    <name>post-extras</name>
+    <description>文档服务拓展</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,19 +23,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
+            <groupId>com.yupaits</groupId>
+            <artifactId>yutool-orm</artifactId>
         </dependency>
     </dependencies>
 
