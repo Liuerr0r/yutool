@@ -45,5 +45,7 @@
     <modules>
         <module>nacos-sample</module>
         <module>nacos-sample-consumer</module>
+        <module>sentinel-sample</module>
+        <module>seata-sample</module>
     </modules>
 </project>

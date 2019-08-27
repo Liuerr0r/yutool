@@ -1,13 +1,21 @@
 server:
-  port: 8121
+  port: 8122
 
 spring:
   application:
-    name: nacos-sample-consumer
+    name: sentinel-sample
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
+
+feign:
+  sentinel:
+    enabled: true
 
 management:
   endpoints:
