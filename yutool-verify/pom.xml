@@ -24,7 +24,7 @@
     <dependencies>
         <dependency>
             <groupId>com.yupaits</groupId>
-            <artifactId>yutool-cache</artifactId>
+            <artifactId>yutool-push</artifactId>
         </dependency>
     </dependencies>
 
