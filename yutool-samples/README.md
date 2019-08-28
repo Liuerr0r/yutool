@@ -19,4 +19,7 @@
 |**spring-cloud-alibaba-sample** nacos-sample|Nacos示例服务提供者|8120|
 |**spring-cloud-alibaba-sample** nacos-sample-consumer|Nacos示例服务消费者|8121|
 |**spring-cloud-alibaba-sample** sentinel-sample|Sentinel使用示例|8122|
-|**spring-cloud-alibaba-sample** seata-sample|Seate分布式事务框架使用示例|8123|
+|**seata-sample** business-service|Seate分布式事务 业务服务|8130|
+|**seata-sample** account-service|Seate分布式事务 账户服务|8131|
+|**seata-sample** order-service|Seate分布式事务 订单服务|8132|
+|**seata-sample** storage-service|Seate分布式事务 库存服务|8133|
