@@ -8,6 +8,9 @@ import com.yupaits.yutool.cache.support.CacheKeyGenerator;
  * @date 2019/8/27
  */
 public class CodeSmsKey implements CacheKeyGenerator {
+    private static final String CODE_SMS_KEY_PREFIX = "sms:code:";
+    private static final String DELIMITER = ":";
+
     private final ISmsScene smsScene;
     private final String mobile;
 
@@ -18,7 +21,6 @@ public class CodeSmsKey implements CacheKeyGenerator {
 
     @Override
     public String cacheKey() {
-        //TODO 生成缓存Key
-        return null;
+        return CODE_SMS_KEY_PREFIX + mobile + DELIMITER + smsScene.getSceneCode();
     }
 }

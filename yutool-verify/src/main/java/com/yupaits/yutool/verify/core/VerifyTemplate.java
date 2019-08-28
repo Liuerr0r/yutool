@@ -13,13 +13,13 @@ import com.yupaits.yutool.push.support.PushProps;
 import com.yupaits.yutool.push.support.PushType;
 import com.yupaits.yutool.verify.config.CodeSmsProps;
 import com.yupaits.yutool.verify.support.CodeSmsKey;
-import com.yupaits.yutool.verify.support.CodeSmsParams;
 import com.yupaits.yutool.verify.support.ISmsScene;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2019/8/19
  */
 public class VerifyTemplate {
+    public static final String CODE_KEY = "code";
+
     private final PushTemplate pushTemplate;
     private final CacheTemplate cacheTemplate;
     private final CodeSmsProps codeSmsProps;
@@ -42,14 +44,12 @@ public class VerifyTemplate {
      * 发送包含验证码的短信
      * @param smsScene 短信场景
      * @param mobile 目标手机号
+     * @param params 短信模板参数
      */
-    public void sendCodeSms(ISmsScene smsScene, String mobile, CodeSmsParams params) throws PushException, CacheException {
+    public void sendCodeSms(ISmsScene smsScene, String mobile, Map<String, Object> params) throws PushException, CacheException {
         String code = RandomStringUtils.randomNumeric(codeSmsProps.getDigits());
-        if (params == null) {
-            params = new CodeSmsParams();
-        }
-        params.setCode(code);
         SmsMsg smsMsg = new SmsMsg().setMsgTemplate(smsScene.getSmsTemplate()).setParams(params);
+        smsMsg.putParam(CODE_KEY, code);
         MultiValueMap<PushType, String> receivers = new LinkedMultiValueMap<>();
         receivers.add(PushType.SMS, mobile);
         PushProps pushProps = PushProps.builder()
