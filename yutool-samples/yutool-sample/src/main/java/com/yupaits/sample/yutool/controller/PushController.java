@@ -48,7 +48,7 @@ public class PushController {
                 .putParam("username", "yupaits")
                 .setSubject("这是一封测试邮件");
         MultiValueMap<PushType, String> receivers = new LinkedMultiValueMap<>();
-        receivers.addAll(PushType.EMAIL, Lists.newArrayList("ts@posun.cn", "ts495606653@hotmail.com"));
+        receivers.addAll(PushType.EMAIL, Lists.newArrayList("yupaits@example.com", "ts495606653@hotmail.com"));
         //发送邮件
         pushTemplate.push(emailMsg, PushProps.builder()
                 .receivers(receivers)
@@ -91,7 +91,7 @@ public class PushController {
                 .setType(NotificationType.NOTIFY)
                 .setTitle("APP测试通知");
         MultiValueMap<PushType, String> receivers = new LinkedMultiValueMap<>();
-        receivers.add(PushType.NOTIFICATION, "platform_0000");
+        receivers.add(PushType.NOTIFICATION, "user_001");
         //推送APP通知
         pushTemplate.push(notification, PushProps.builder()
                 .receivers(receivers)
@@ -111,7 +111,7 @@ public class PushController {
         SmsMsg smsMsg = new SmsMsg().setMsgTemplate(MsgTemplate.SMS_TEMPLATE)
                 .putParam("username", "yupaits");
         MultiValueMap<PushType, String> receivers = new LinkedMultiValueMap<>();
-        receivers.add(PushType.SMS, "15927339628");
+        receivers.add(PushType.SMS, "13866668888");
         //推送短信
         pushTemplate.push(smsMsg, PushProps.builder()
                 .receivers(receivers)
@@ -131,9 +131,9 @@ public class PushController {
         ImMsg imMsg = new ImMsg().setMsgTemplate(MsgTemplate.IM_TEMPLATE)
                 .setType(ImMsgType.TEXT)
                 .setSendType(ImSendType.PERSON)
-                .setFrom("oksales");
+                .setFrom("test_user1");
         MultiValueMap<PushType, String> receivers = new LinkedMultiValueMap<>();
-        receivers.add(PushType.IM, "oksales_test");
+        receivers.add(PushType.IM, "test_user2");
         //推送IM消息
         pushTemplate.push(imMsg, PushProps.builder()
                 .receivers(receivers)
