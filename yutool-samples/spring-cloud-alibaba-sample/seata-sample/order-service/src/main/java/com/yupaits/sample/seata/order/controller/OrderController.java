@@ -10,19 +10,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /**
  * @author yupaits
@@ -83,13 +78,10 @@ public class OrderController {
     }
 
     private void invokerAccountService(int orderMoney) {
-        String url = "http://127.0.0.1:8131/account";
+        String url = String.format("http://127.0.0.1:8131/account?userId=%s&money=%d", USER_ID, orderMoney);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("userId", USER_ID);
-        map.add("money", orderMoney + "");
-        HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map, headers);
+        HttpEntity<Object> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
     }
 }

@@ -10,8 +10,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -43,19 +41,15 @@ public class HomeController {
     @GlobalTransactional(timeoutMills = 300000, name = "seata-tx")
     @GetMapping("/seata/rest")
     public String rest() {
-        String storageUrl = "http://127.0.0.1:8133/storage/" + COMMODITY_CODE + "/" + ORDER_COUNT;
-        String orderUrl = "http://127.0.0.1:8132/order";
+        String storageUrl = String.format("http://127.0.0.1:8133/storage/%s/%d", COMMODITY_CODE, ORDER_COUNT);
+        String orderUrl = String.format("http://127.0.0.1:8132/order?userId=%s&commodityCode=%s&orderCount=%d", USER_ID, COMMODITY_CODE, ORDER_COUNT);
         String result = restTemplate.getForObject(storageUrl, String.class);
         if (!StringUtils.equals(SUCCESS, result)) {
             throw new RuntimeException();
         }
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("userId", USER_ID);
-        map.add("commodityCode", COMMODITY_CODE);
-        map.add("orderCount", ORDER_COUNT + "");
-        HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map, headers);
+        HttpEntity<Object> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> response = restTemplate.postForEntity(orderUrl, entity, String.class);
         result = response.getBody();
         if (!StringUtils.equals(SUCCESS, result)) {
