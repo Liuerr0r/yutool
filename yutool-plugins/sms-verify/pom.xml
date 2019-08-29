@@ -2,17 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>yutool-sms-verify</artifactId>
+    <artifactId>sms-verify</artifactId>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>com.yupaits</groupId>
-        <artifactId>yutool-parent</artifactId>
+        <artifactId>yutool-plugins</artifactId>
         <version>${revision}</version>
-        <relativePath>../yutool-parent</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
-    <name>yutool-sms-verify</name>
+    <name>sms-verify</name>
     <description>yutool短信验证码组件</description>
 
     <properties>

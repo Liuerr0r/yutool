@@ -54,7 +54,6 @@
         <module>yutool-cache</module>
         <module>yutool-push</module>
         <module>yutool-file-server</module>
-        <module>yutool-sms-verify</module>
         <module>yutool-template</module>
         <module>yutool-plugins</module>
         <module>yutool-samples</module>
