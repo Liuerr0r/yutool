@@ -49,7 +49,7 @@
 
         <dependency>
             <groupId>com.yupaits</groupId>
-            <artifactId>yutool-verify</artifactId>
+            <artifactId>sms-verify</artifactId>
         </dependency>
 
         <dependency>
